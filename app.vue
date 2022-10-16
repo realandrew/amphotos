@@ -45,7 +45,10 @@ useHead({
     },
   ],
 });
-const { data: photoData } = await useFetch(`${process.env.API_URL}/photos/`);
+
+const config = useRuntimeConfig();
+
+const { data: photoData } = await useFetch(`${config.API_URL}/photos/`);
 
 onMounted(() => {
   Fancybox.bind('[data-fancybox="gallery-a"]',
