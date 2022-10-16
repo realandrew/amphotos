@@ -45,7 +45,7 @@ useHead({
     },
   ],
 });
-const { data: photoData } = await useFetch('http://localhost:3001/v1/photos/');
+const { data: photoData } = await useFetch(`${process.env.API_URL}/photos/`);
 
 onMounted(() => {
   Fancybox.bind('[data-fancybox="gallery-a"]',
@@ -53,7 +53,7 @@ onMounted(() => {
     Thumbs: {autoStart: true},
     Toolbar: {
       autoEnable: false,
-      display: ["download", "zoom","slideshow","fullscreen","thumbs","close"],
+      display: ["download", "zoom", "slideshow", "fullscreen", "thumbs", "close"],
     },
   });
 });
