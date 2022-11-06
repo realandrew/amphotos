@@ -32,7 +32,16 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 0;
+  font-family: 'Dancing Script', cursive;
+}
+
+.top h1 {
+  font-size: 3em;
+}
+
+.top h2 {
+  font-size: 2.5em;
 }
 
 .top * {
@@ -48,6 +57,7 @@ nav {
   gap: 20px;
   padding: 0;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 nav * {

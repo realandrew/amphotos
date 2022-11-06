@@ -13,11 +13,9 @@
           >. Please see the <a href="#">F.A.Q.</a> section for further details.
         </p>
       </div>
-      <PhotoGrid
-        v-if="photoData"
-        :photos="photoData.photos"
-      ></PhotoGrid>
-      <p v-else>No photos loaded... (this probably means the server is down)</p>
+      <div>
+        <PhotoGrid></PhotoGrid>
+      </div>
     </div>
   </div>
 </template>
@@ -29,6 +27,12 @@ import "@fancyapps/ui/dist/fancybox.css";
 
 //const props = defineProps(['photos']);
 useHead({
+  htmlAttrs: [
+    {
+      lang: 'en'
+    }
+  ],
+  title: 'Andrew Mitchell Photography',
   link: [
     {
       rel: 'preconnect',
@@ -36,7 +40,7 @@ useHead({
     },
     {
       rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat&family=Open+Sans&family=Roboto&display=swap',
       crossorigin: '',
     },
     {
@@ -44,11 +48,13 @@ useHead({
       href: 'node_modules/modern-normalize/modern-normalize.css',
     },
   ],
+  meta: [
+    {
+      name: "description",
+      content: "A showcase of photos taken by Andrew Mitchell."
+    }
+  ]
 });
-
-const config = useRuntimeConfig();
-
-const { data: photoData } = await useFetch(`${config.API_URL}/photos/`);
 
 onMounted(() => {
   Fancybox.bind('[data-fancybox="gallery-a"]',
@@ -64,12 +70,16 @@ onMounted(() => {
 
 <style>
 body {
-  background-color: #090216; /*#01010f;*/
-  color: #e6c9c4; /* #e9e5f0; */
+  background-color: #fff; /* #090216; */ /*#01010f;*/
+  color: #130b41; /* #e6c9c4; */  /* #e9e5f0; */
+}
+
+p, a {
+  font-family: 'Open Sans', sans-serif;
 }
 
 a {
-  color: #eb0974; /*#72ca31;*/
+  color: #3c1ea2; /* #eb0974; */ /*#72ca31;*/
   font-weight: 700;
 }
 
